@@ -37,12 +37,14 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
   print_full_technical_info:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: print full_tech_info
         run: sudo lshw
 
   print_short_technical_info:
+      needs: build
       runs-on: ubuntu-latest
       steps:    
         - name: print short_tech_info
