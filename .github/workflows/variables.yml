@@ -10,7 +10,7 @@ env: # Переменные уровня workflow
     create_workdir_and_files_on_1_vm:
       runs-on: ubuntu-latest
       env:
-        my_project_name: pseudoproj # Аналогично команде export my_projectmane=pseudoproj
+        my_project_name: pseudoproj # Аналогично команде export my_projectmane=pseudoprojgit 
       steps:
         - name: Make work dir and create files
           run: | 
