@@ -1,5 +1,5 @@
 name: Test env 
-on: workflow_dispatch #Позволяет запускать workflow вручную
+on: workflow_dispatch # Позволяет запускать workflow вручную
 env: # Переменные уровня workflow
     work_path: ./project
     project_name: ./pyoops.com
