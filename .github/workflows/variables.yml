@@ -1,0 +1,34 @@
+name: Test env 
+on: workflow_dispatch #Позволяет запускать workflow вручную
+env: # Переменные уровня workflow
+    work_path: ./project
+    project_name: ./pyoops.com
+    project_files_set_1: main.py db_python.sql readme.md
+    project_files_set_2: numerics.js readme.md base.json
+  
+  jobs:
+    create_workdir_and_files_on_1_vm:
+      runs-on: ubuntu-latest
+      env:
+        my_project_name: pseudoproj # Аналогично команде export my_projectmane=pseudoproj
+      steps:
+        - name: Make work dir and create files
+          run: | 
+            mkdir ${{ env.work_path }}
+            cd ${{ env.work_path }}
+            mkdir ${{ env.my_project_name }}
+            cd ${{ env.my_project_name }}
+            touch ${{ env.project_files_set_1 }}
+            ls -la
+  
+    create_workdir_and_files_on_2_vm:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Make work dir and create files
+          run: | 
+            mkdir ${{ env.work_path }}
+            cd ${{ env.work_path }}
+            mkdir ${{ env.project_name }}
+            cd ${{ env.project_name }}
+            touch ${{ env.project_files_set_2 }}
+            ls -la
