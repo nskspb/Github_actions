@@ -11,37 +11,37 @@ Workflow состоит из jobs (джобы) — это логический �
 На уровне jobs определяется ОС, в среде которой будет выполняться задача и определяются шаги, которые содержат команды — инструкция run или экшены — инструкция uses. 
 В коде это может выглядеть так:
 
-name: print hello and checkout repo workflow
-on: push
-
-jobs:
-
-  print_hello:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print hello
-        run: echo "Hello world!"
-
-  checkout_repo:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v3
+name: print hello and checkout repo workflowc <br />
+on: push <br />
+<br />
+jobs: <br />
+<br />
+  print_hello:<br />
+    runs-on: ubuntu-latest<br />
+    steps:<br />
+      - name: Print hello<br />
+        run: echo "Hello world!"<br />
+<br />
+  checkout_repo:<br />
+    runs-on: ubuntu-latest<br />
+    steps:<br />
+      - name: checkout<br />
+        uses: actions/checkout@v3<br />
 По умолчанию джобы и workflow выполняются параллельно на разных VM GitHub. Этим поведением можно управлять и выстраивать цепочки. Для последовательного и связанного выполнения джобов, 
 в зависимых джобах используется инструкция needs: [waiting job]. 
-Вот пример связанных джобов:
-
-jobs:
-
-  print_hello:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print hello
-        run: echo "Hello world!"
-
-  checkout_repo:
-    needs: print_hellow
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
+Вот пример связанных джобов:<br />
+<br />
+jobs:<br />
+<br />
+  print_hello:<br />
+    runs-on: ubuntu-latest<br />
+    steps:<br />
+      - name: Print hello<br />
+        run: echo "Hello world!"<br />
+<br />
+  checkout_repo:<br />
+    needs: print_hellow<br />
+    runs-on: ubuntu-latest<br />
+    steps:<br />
+      - name: checkout<br />
         uses: actions/checkout@v3
