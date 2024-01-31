@@ -6,7 +6,7 @@ env: # Переменные уровня workflow
     project_files_set_1: main.py db_python.sql readme.md
     project_files_set_2: numerics.js readme.md base.json
   
-  jobs:
+jobs:
     create_workdir_and_files_on_1_vm:
       runs-on: ubuntu-latest
       env:
