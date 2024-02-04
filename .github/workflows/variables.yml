@@ -38,8 +38,8 @@ jobs:
         steps:
           - name: create var
             run:
-            echo "SERVER_IP='$(hostname -I | awk '{print $1}')'" >> $GITHub_ENV
+              echo "SERVER_IP='$(hostname -I | awk '{print $1}')'" >> $GITHub_ENV
           - name: read var
             run: |
-            echo "Calling var from env using env context: server ip is ${{ env.SERVER_IP }}"
-            echo "Calling var from env: server ip is $SERVER_IP"                
+              echo "Calling var from env using env context: server ip is ${{ env.SERVER_IP }}"
+              echo "Calling var from env: server ip is $SERVER_IP"                
